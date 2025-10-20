@@ -1,0 +1,25 @@
+###############################
+#  Violetshine's .zshrc file  #
+###############################
+
+### Configuration added by 3rd-party tools ###
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# GPG
+export GPG_TTY=$(tty)
+
+### zsh options (https://zsh.sourceforge.io/Doc/Release/Options.html) ###
+
+# "If a completion is performed with the cursor within a word, and a full completion is inserted, the cursor is moved to
+# the end of the word. That is, the cursor is moved to the end of the word if either a single match is inserted or menu
+# completion is performed."
+setopt always_to_end
+
+# "If set, parameter expansion, command substitution and arithmetic expansion are performed in prompts. Substitutions
+# within prompts do not affect the command status."
+setopt prompt_subst
+
+### Custom zsh prompt ###
+PROMPT=$'\e[38;5;86m%n\e[0m %~ %# '
