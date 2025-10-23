@@ -18,6 +18,9 @@ export NVM_DIR="$HOME/.nvm"
 # rustup
 . "$HOME/.cargo/env"
 
+# ghcup
+export PATH="$HOME/.ghcup/bin:$PATH"
+
 # GPG
 export GPG_TTY=$(tty)
 
