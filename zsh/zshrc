@@ -36,4 +36,4 @@ setopt always_to_end
 setopt prompt_subst
 
 ### Custom zsh prompt ###
-PROMPT=$'\e[38;5;86m%n\e[0m %~ %# '
+PROMPT=$'\e[38;5;92m%n\e[0m %~ %# '
