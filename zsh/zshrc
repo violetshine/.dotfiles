@@ -7,6 +7,9 @@
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Direnv
+eval "$(direnv hook zsh)"
+
 # Deno, first completions and then shell env
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 . "$HOME/.deno/env"
