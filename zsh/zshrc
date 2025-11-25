@@ -2,7 +2,8 @@
 #  Violetshine's .zshrc file  #
 ###############################
 
-### Configuration added by 3rd-party tools ###
+# Nix
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
