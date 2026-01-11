@@ -2,32 +2,6 @@
 #  Violetshine's .zshrc file  #
 ###############################
 
-# Nix
-source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Direnv
-eval "$(direnv hook zsh)"
-
-# Deno, first completions and then shell env
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-. "$HOME/.deno/env"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# rustup
-. "$HOME/.cargo/env"
-
-# ghcup
-export PATH="$HOME/.ghcup/bin:$PATH"
-
-# GPG
-export GPG_TTY=$(tty)
-
 ### zsh options (https://zsh.sourceforge.io/Doc/Release/Options.html) ###
 
 # "If a completion is performed with the cursor within a word, and a full completion is inserted, the cursor is moved to
@@ -39,7 +13,32 @@ setopt always_to_end
 # within prompts do not affect the command status."
 setopt prompt_subst
 
-### Add ~/.local/bin to path ###
+############################
+
+# nix already places itself in /etc/
+
+# Hook direnv (installed through nix profile)
+eval "$(direnv hook zsh)"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# GPG
+export GPG_TTY=$(tty)
+
+### PATH additions ###
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Rust/Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# GHCup (Haskell & related tools)
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+
+# Add ~/.local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
 ### Custom zsh prompt ###
